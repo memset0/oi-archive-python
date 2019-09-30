@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}
+	{{ oj_data[oj]['name'] }}
+	{{ pid }}
+	<i class="mdui-icon material-icons">chevron_right</i>
+	{{ prob['title'] }}
+{% endblock %}
+{% block main %}
+{% for title, content in data.items() %}
+	<div class="mdui-card problem-card">
+		<div class="mdui-card-primary">
+			<div class="mdui-card-primary-title">{{ title }}</div>
+		</div>
+		<div class="mdui-card-content">
+			{{ content | safe }}
+		</div>
+	</div>
+{% endfor %}
+{% endblock %}

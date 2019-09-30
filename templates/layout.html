@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="OI Archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>OI Archive</title>
+    <link rel="shortcut icon" href="static/images/favicon.png">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+  </head>
+  <body class="body mdui-drawer-body-left">
+
+    <div class="toolbar mdui-toolbar">
+      {% block toolbar %}
+        <a class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+        <span class="mdui-typo-title">{% block title %}{% endblock %}</span>
+        <div class="mdui-toolbar-spacer"></div>
+      {% endblock %}
+    </div>
+
+    <div class="drawer mdui-drawer" id="drawer">
+      {% block drawer %}
+        <ul class="mdui-list">
+          <a href="/" class="list-item">
+            <li class="mdui-list-item mdui-ripple">
+              <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+              <div class="mdui-list-item-content">首页</div>
+            </li>
+          </a>
+          <li class="mdui-subheader">OJ 列表</li>
+          {% for name, item in oj_data.items() %}
+          <a href="/problemset/{{ name }}" class="list-item">
+            <li class="mdui-list-item mdui-ripple">
+              <i class="mdui-list-item-icon mdui-icon material-icons">email</i>
+              <div class="mdui-list-item-content">{{ item['name'] }}</div>
+            </li>
+         </a> 
+          {% endfor %}
+        </ul>
+      {% endblock %}
+    </div>
+
+    <div class="main mdui-container">
+      {% block main %}
+      <div class="mdui-card">
+        {% block main_card %}
+        <div class="mdui-card-content">
+          {% block main_content %}
+          子曰：「学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知，而不愠，不亦君子乎？」
+          {% endblock %}
+        </div>
+        {% endblock %}
+      </div>
+      {% endblock %}
+    </div>
+
+    <!-- <i class="mdui-icon material-icons">chevron_right</i> -->
+    <script src="https://cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+    </script>
+    <script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  </body>
+</html>

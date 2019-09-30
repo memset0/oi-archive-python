@@ -1,0 +1,8 @@
+{
+  "loj": {
+    "problem_link": "https://loj.ac/problem/{pid}"
+  },
+  "uoj": {
+    "problem_link": "http://uoj.ac/problem/{pid}"
+  }
+}

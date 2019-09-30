@@ -1,0 +1,83 @@
+.body {
+	background: #f5f5f5;
+}
+
+.toolbar {
+	color: #757575 !important;
+	background: #f5f5f5 !important;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12) !important;
+}
+
+.drawer {
+	color: #78909c !important;
+	background: #37474f !important;
+}
+.drawer .mdui-subheader,
+.drawer .mdui-list-item-icon {
+	color: #78909c !important;
+}
+.drawer .mdui-list-item {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+.drawer .mdui-list-item {
+	transition: 0s;
+	-webkit-transition: 0s;
+}
+.drawer .list-item :hover {
+	background: #06859f !important;
+}
+.drawer .list-item :hover > * {
+	color: #f5f5f5 !important;
+}
+.drawer .mdui-list-item .mdui-list-item-content {
+	margin-left: 20px;
+}
+
+.main {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+/* ===== problemset ===== */
+.problemset-link {
+	color: #000;
+	text-decoration: none;
+}
+/* ===== problemset ===== */
+
+/* ===== problem ===== */
+.problem-card {
+	margin-bottom: 40px;
+}
+.problem-card .mdui-card-primary {
+	font-size: 10px;
+	margin: 16px 16px 0 16px;
+	padding: 0;
+}
+.problem-card .mdui-card-content {
+	padding: 0;
+	margin: 0 16px 16px 16px;
+}
+.problem-card .mdui-card-primary .mdui-card-primary-title {
+	font-size: 20px;
+}
+.problem-card img {
+	margin: auto;
+	display: block;
+}
+.problem-card pre {
+	position: relative;
+	background: #fff;
+	-webkit-box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+	box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+	margin: 1rem 0;
+	padding: 1em 1em;
+	border-radius: .28571429rem;
+	border: 1px solid rgba(34,36,38,.15);
+}
+.problem-card p {
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+/* ===== problem ===== */
