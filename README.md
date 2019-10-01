@@ -16,11 +16,7 @@ or
 wget https://github.com/oi-archive/source/archive/master.zip
 mv master.zip source.zip
 docker image build . -t oi-archive
-```
-
-and run container with
-
-```shell
+# and run container with
 docker container run -d -p 8080:8080 -it oi-archive
 ```
 
