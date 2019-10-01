@@ -7,6 +7,13 @@
 	margin-bottom: 32px;
 }
 
+.mdui-typo a {
+	color: #00BCD4 !important;
+}
+.mdui-typo a:before {
+	background-color: #00BCD4 !important;
+}
+
 /* ===== tooolbar ===== */
 .toolbar {
 	color: #757575 !important;
@@ -152,21 +159,20 @@
 /* ===== problem ===== */
 
 /* ===== dark mode ===== */
-.body.mdui-theme-layout-dark {
+.body.mdui-theme-layout-dark,
+.mdui-theme-layout-dark .toolbar {
 	background: #303030 !important;
 }
 .mdui-theme-layout-dark .toolbar {
 	background: #303030 !important;
 	color: #d0d0d0 !important;
 }
-.mdui-theme-layout-dark  .drawer {
+.mdui-theme-layout-dark .drawer {
 	background: #263238 !important;
 }
 .mdui-theme-layout-dark .drawer .mdui-subheader,
+.mdui-theme-layout-dark .drawer .mdui-list-item,
 .mdui-theme-layout-dark .drawer .mdui-list-item-icon {
-	color: #607D8B !important;
-}
-.mdui-theme-layout-dark .drawer .mdui-list-item {
 	color: #607D8B !important;
 }
 .mdui-theme-layout-dark .drawer .list-item :hover {
@@ -179,13 +185,19 @@
 	color: #d0d0d0 !important;
 	background: #455A64 !important;
 }
-.mdui-theme-layout-dark .problemset-link {
-	color: #fff !important;
-}
 .mdui-theme-layout-dark .fab,
 .mdui-theme-layout-dark .problem-infobar .btn-group .btn-active,
 .mdui-theme-layout-dark .problem-infobar .btn-group .btn:hover {
 	color: #d0d0d0 !important;
 	background: #06859f !important;
+}
+.mdui-theme-layout-dark .problemset-link {
+	color: #fff !important;
+}
+.mdui-theme-layout-dark .mdui-typo a {
+	color: #06859f !important;
+}
+.mdui-theme-layout-dark .mdui-typo a:before {
+	background-color: #06859f !important;
 }
 /* ===== dark mode ===== */
