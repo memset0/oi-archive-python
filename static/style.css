@@ -150,7 +150,12 @@
 	color: #f5f5f5 !important;
 	background: #00BCD4 !important;
 }
-.problem-infobar .btn-group .left .btn {
-	display: none !important;
+@media (max-width: 680px) {
+	.problem-infobar .left.btn-group .btn {
+		display: none !important;
+	}
+	.problem-infobar .left.btn-group .btn-active {
+		display: block !important;
+	}
 }
 /* ===== problem ===== */
