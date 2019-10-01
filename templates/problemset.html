@@ -28,7 +28,7 @@
     <tbody>
       {% for problem in problemset %}
         <tr>
-          <td>{{ problem.oj_name }} {{ problem.pid }}</td>
+          <td>{{ problem.oj_name }}{{ problem.pid }}</td>
           <td>
             <a class="problemset-link" href="/problem/{{ problem.oj }}/{{ problem.pid }}">
               {{ problem.title }}
