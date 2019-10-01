@@ -35,8 +35,8 @@
 }
 
 .main {
-	margin-top: 40px;
-	margin-bottom: 40px;
+	margin-top: 32px;
+	margin-bottom: 32px;
 }
 
 /* ===== problemset ===== */
@@ -48,7 +48,7 @@
 
 /* ===== problem ===== */
 .problem-card {
-	margin-bottom: 40px;
+	margin-bottom: 32px;
 }
 .problem-card .mdui-card-primary {
 	font-size: 10px;
