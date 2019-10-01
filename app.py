@@ -9,6 +9,14 @@ def markdown(text):
 	text = markdown_lib.markdown(text, extensions=['markdown.extensions.extra'])
 	return text
 
+def render(text, type):
+	if type == 'markdown':
+		text = markdown(text)
+	text = text.replace('src="source/', 'src="/source/')
+	text = re.sub('<pre>\n*', '<pre>', text)
+	text = re.sub('\n*</pre>', '</pre>', text)
+	return text
+
 def load_oj_data():
 	result = {}
 	for info in json.load(open('source/problemset.json','r')):
@@ -74,9 +82,7 @@ def problem(oj, pid):
 		statement = string[key:]
 		if re.sub('\s', '', statement) == '':
 			continue
-		if prob['description_type'] == 'markdown':
-			statement = markdown(statement)
-		content[title] = statement.replace('src="source/', 'src="/source/')
+		content[title] = render(statement, prob['description_type'])
 	return render_template('problem.html', **data,
 		oj = oj,
 		pid = pid,
