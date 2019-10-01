@@ -80,4 +80,29 @@
 	margin-top: 16px;
 	margin-bottom: 16px;
 }
+.problem-infobar {
+	margin-bottom: 32px;
+	width: 100%;
+	height: 36px;
+	display: block;
+	text-align: justify;
+	position: relative !important;
+}
+.problem-infobar .btn {
+	color: #000 !important;
+	background: #fff;
+}
+.problem-infobar .btn-group {
+	display: inline-block;
+	box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+	-webkit-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+.problem-infobar .left {
+	position: absolute !important;
+	left: 0px !important;
+}
+.problem-infobar .right {
+	position: absolute !important;
+	right: 0px !important;
+}
 /* ===== problem ===== */

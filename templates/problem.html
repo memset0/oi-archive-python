@@ -6,6 +6,18 @@
 	{{ prob['title'] }}
 {% endblock %}
 {% block main %}
+<div class="problem-infobar">
+	<div class="btn-group mdui-btn-group problem-button-group left">
+		<a class="btn mdui-btn mdui-btn-active mdui-ripple" href="{{ prob['url'] }}">回到原题库</a>
+	</div>
+	<div class="btn-group mdui-btn-group problem-button-group right">
+		<button class="btn mdui-btn mdui-ripple">{{ prob['time'] }} ms</buttuon>
+		<button class="btn mdui-btn mdui-ripple">{{ prob['memory'] }} MB</buttuon>
+		{% if 'judge' in prob.keys() and prob['judge'] != '' %}
+		<button class="btn mdui-btn mdui-ripple">{{ prob['judge'] }}</buttuon>
+		{% endif %}
+	</div>
+</div>
 {% for title, content in data.items() %}
 	<div class="mdui-card problem-card">
 		<div class="mdui-card-primary">
