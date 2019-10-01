@@ -63,6 +63,10 @@ def page_500(e):
 		error_info = 'Internal Server Error'
 	), 500
 
+@app.route('/source/<path:filename>') 
+def source_file(filename): 
+    return send_from_directory('source', filename) 
+
 @app.route('/')
 def index():
 	return render_template('index.html', **data, 
@@ -104,10 +108,6 @@ def problem(oj, pid):
 		config = data['oj_config'].get(oj, dict()),
 		style = 'problem'
 	)
-	
-@app.route('/source/<path:filename>') 
-def custom_static(filename): 
-    return send_from_directory('source', filename) 
 
 if __name__ == '__main__':
 	app.run()
