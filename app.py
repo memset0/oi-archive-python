@@ -70,14 +70,20 @@ def problem(oj, pid):
 		style = 'problem'
 	)
 
-@app.route('/search/<keyword>')
-def search(keyword):
+@app.route('/search/<keywords>')
+def search(keywords):
+	keywords = keywords.split(' ')
 	problemset = []
 	for prob in dictionary:
-		if prob.search(keyword):
+		flag = True
+		for keyword in keywords:
+			if not prob.search(keyword):
+				flag = False
+				break
+		if flag:
 			problemset.append(prob)
 	return render_template('problemset.html', **data,
-		name = keyword,
+		name = ' '.join(keywords),
 		problemset = problemset,
 		style = 'search'
 	)

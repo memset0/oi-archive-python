@@ -7,9 +7,10 @@ class Problem:
 		self.pid = pid
 		self.title = title
 	def search(self, keyword):
-		if keyword == self.oj or keyword == self.pid or keyword == self.oj + self.pid:
+		keyword = keyword.upper()
+		if keyword == self.oj.upper() or keyword == self.pid.upper() or keyword == self.oj.upper() + self.pid.upper():
 			return True
-		if keyword in self.title:
+		if keyword in self.title.upper():
 			return True
 		return False
 
