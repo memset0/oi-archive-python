@@ -26,6 +26,8 @@ def render(text, type, oj):
 	text = re.sub('\n*</pre>', '</pre>', text)
 	text = text.replace('<pre>', '<div class="mdui-typo"><pre>')
 	text = text.replace('</pre>', '</pre></div>')
+	text = re.sub('<table[\s\S]*?>', '<div class="table mdui-table-fluid"><table class="mdui-table">', text)
+	text = re.sub('</table>', '</table></div>', text)
 	return text
 
 def load_oj_data():

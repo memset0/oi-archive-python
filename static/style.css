@@ -80,6 +80,12 @@
 	border-radius: .28571429rem;
 	border: 1px solid rgba(34,36,38,.15);
 } */
+.problem-card .table {
+	border: 1px solid rgba(0,0,0,.12);
+	border-radius: 2px;
+	box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+}
 .problem-card p {
 	margin-top: 16px;
 	margin-bottom: 16px;
