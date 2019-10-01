@@ -8,6 +8,8 @@ def markdown(text):
 def render(text, type, oj):
 	# 人类智慧结晶
 	if type == 'markdown':
+		text = text.replace('\n* ', '\n\n* ')
+		text = text.replace('\n- ', '\n\n- ')
 		text = markdown(text)
 	if oj == 'tsinsen':
 		text = text.replace('<div id="pcont1" style="margin-top:20px; display:block;">', '')
