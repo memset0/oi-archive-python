@@ -25,7 +25,7 @@ def source_file(filename):
     return send_from_directory('source', filename) 
 
 @app.route('/favicon.png') 
-def favicon_file(filename):
+def favicon_file():
     return send_from_directory('.', 'favicon.png') 
 
 @app.route('/')
