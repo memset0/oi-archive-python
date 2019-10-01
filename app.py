@@ -23,6 +23,7 @@ def markdown(text):
 	return text
 
 def render(text, type, oj):
+	# 人类智慧结晶
 	if type == 'markdown':
 		text = markdown(text)
 	if oj == 'tsinsen':
