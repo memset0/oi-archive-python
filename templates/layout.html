@@ -12,7 +12,7 @@
   </head>
   <body class="body mdui-drawer-body-left">
 
-    <div class="toolbar mdui-toolbar">
+    <div class="toolbar mdui-toolbar" mdui-headroom>
       {% block toolbar %}
         <a class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
         <span class="mdui-typo-title">{% block title %}{% endblock %}</span>
