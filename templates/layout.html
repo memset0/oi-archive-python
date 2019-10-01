@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>{% block page_title %}{{ title }} - OI Archive{% endblock %}
     </title>
-    <link rel="shortcut icon" href="static/images/favicon.png">
+    <link rel="shortcut icon" href="/favicon.png">
     <link rel="stylesheet" href="/static/style.css?20191002">
-    <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <link rel="stylesheet" href="/static/css/mdui.min.css">
   </head>
   <body class="body mdui-drawer-body-left mdui-theme-primary-blue-grey mdui-theme-accent-cyan">
 
@@ -83,8 +83,8 @@
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
       })();
     </script>
-    <script src="https://cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
-    <script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/static/js/mdui.min.js"></script>
+    <script src="/static/jquery.min.js"></script>
     <script>
     $(function () {
         $("#search").keydown(function (e) {
@@ -109,7 +109,7 @@
         }
     });
     </script>
-    <script async src="//cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script async src="/static/MathJax.js"></script>
     <script type="text/javascript">
       (function(d, s) {
         var j, e = d.getElementsByTagName(s)[0];
