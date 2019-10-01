@@ -14,6 +14,9 @@ def render(text, type, oj):
 		text = markdown(text)
 	if oj == 'tsinsen':
 		text = text.replace('<div id="pcont1" style="margin-top:20px; display:block;">', '')
+		data = re.findall('<div class="pddata">[\s\S]*?</div>', text)
+		for item in data:
+			text = text.replace(item, '<pre>' + item[21:-6].replace('<br/>', '') + '</pre>')
 	elif oj == 'bzoj':
 		text = text.replace('<div class="content"><span class="sampledata">', '<pre>')
 		text = text.replace('</span></div>', '</pre>')
