@@ -15,6 +15,8 @@ or
 Require Docker installed.
 
 ```
+wget https://github.com/oi-archive/source/archive/master.zip
+mv master.zip source.zip
 docker image build . -t oi-archive
 ```
 
