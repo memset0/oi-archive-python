@@ -179,6 +179,9 @@
 	color: #d0d0d0 !important;
 	background: #455A64 !important;
 }
+.mdui-theme-layout-dark .problemset-link {
+	color: #fff !important;
+}
 .mdui-theme-layout-dark .fab,
 .mdui-theme-layout-dark .problem-infobar .btn-group .btn-active,
 .mdui-theme-layout-dark .problem-infobar .btn-group .btn:hover {
