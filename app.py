@@ -30,11 +30,7 @@ def render(text, type, oj):
 		text = text.replace('<div id="pcont1" style="margin-top:20px; display:block;">', '')
 		data = re.findall('<div class="pddata">[\s\S]*?</div>', text)
 		for item in data:
-			print(item)
-			print('---')
 			text = text.replace(item, '<pre>' + item[20:-6].replace('<br/>', '') + '</pre>')
-			print('<pre>' + item[20:-6].replace('<br/>', '') + '</pre>')
-			print('---')
 	elif oj == 'bzoj':
 		text = text.replace('<div class="content"><span class="sampledata">', '<pre>')
 		text = text.replace('</span></div>', '</pre>')
