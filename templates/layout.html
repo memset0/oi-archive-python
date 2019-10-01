@@ -71,6 +71,10 @@
       {% endblock %}
     </div>
 
+    <button class="fab mdui-fab mdui-fab-fixed mdui-ripple" id="fab">
+      <i class="mdui-icon material-icons">lightbulb_outline</i>
+    </button>
+
     <script type="text/javascript">
       var _paq = window._paq || [];
       _paq.push(['trackPageView']);
@@ -85,12 +89,21 @@
     </script>
     <script src="/static/mdui/js/mdui.min.js"></script>
     <script src="/static/jquery.min.js"></script>
-    <script>
+    <script type="text/javascript">
     $(function () {
         $("#search").keydown(function (e) {
             if (e.keyCode == 13) {
               window.location.href = "/search/" + $("#search")[0].value;
             }
+        });
+    });
+    $(function () {
+        $("#fab").click(function () {
+          if ($("body").attr("class").split(' ').indexOf("mdui-theme-layout-dark") == -1) {
+            $("body").addClass("mdui-theme-layout-dark");
+          } else {
+            $("body").removeClass("mdui-theme-layout-dark");
+          }
         });
     });
     </script>

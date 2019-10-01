@@ -1,5 +1,5 @@
 .body {
-	background: #f5f5f5;
+	background: #f5f5f5 !important;
 }
 
 .main {
@@ -29,7 +29,6 @@
 
 /* ===== drawer ===== */
 .drawer {
-	color: #78909c !important;
 	background: #37474f !important;
 	z-index: 20040725 !important;
 }
@@ -38,6 +37,7 @@
 	color: #78909c !important;
 }
 .drawer .mdui-list-item {
+	color: #78909c !important;
 	padding-left: 40px;
 	padding-right: 40px;
 }
@@ -135,6 +135,7 @@
 	color: #f5f5f5 !important;
 	background: #78909c !important;
 }
+.fab,
 .problem-infobar .btn-group .btn-active,
 .problem-infobar .btn-group .btn:hover {
 	color: #f5f5f5 !important;
@@ -149,3 +150,39 @@
 	}
 }
 /* ===== problem ===== */
+
+/* ===== dark mode ===== */
+.body.mdui-theme-layout-dark {
+	background: #303030 !important;
+}
+.mdui-theme-layout-dark .toolbar {
+	background: #303030 !important;
+	color: #d0d0d0 !important;
+}
+.mdui-theme-layout-dark  .drawer {
+	background: #263238 !important;
+}
+.mdui-theme-layout-dark .drawer .mdui-subheader,
+.mdui-theme-layout-dark .drawer .mdui-list-item-icon {
+	color: #607D8B !important;
+}
+.mdui-theme-layout-dark .drawer .mdui-list-item {
+	color: #607D8B !important;
+}
+.mdui-theme-layout-dark .drawer .list-item :hover {
+	background: #06859f !important;
+}
+.mdui-theme-layout-dark .drawer .list-item :hover > * {
+	color: #d0d0d0 !important;
+}
+.mdui-theme-layout-dark .problem-infobar .btn-group .btn {
+	color: #d0d0d0 !important;
+	background: #455A64 !important;
+}
+.mdui-theme-layout-dark .fab,
+.mdui-theme-layout-dark .problem-infobar .btn-group .btn-active,
+.mdui-theme-layout-dark .problem-infobar .btn-group .btn:hover {
+	color: #d0d0d0 !important;
+	background: #06859f !important;
+}
+/* ===== dark mode ===== */
