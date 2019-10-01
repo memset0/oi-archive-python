@@ -99,6 +99,7 @@ def problem(oj, pid):
 		pid = pid,
 		prob = prob,
 		data = content,
+		config = data['oj_config'].get(oj, dict()),
 		style = 'problem'
 	)
 	

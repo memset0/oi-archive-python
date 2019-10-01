@@ -1,8 +1,28 @@
 {
   "loj": {
-    "problem_link": "https://loj.ac/problem/{pid}"
+    "submit_link": "https://loj.ac/problem/{pid}#submit_code",
+    "testdata_link": "https://loj.ac/problem/{pid}/testdata",
+    "submission_link": "https://loj.ac/submissions?problem_id={pid}",
+    "statistics_link": "https://loj.ac/problem/{pid}/statistics/shortest",
+    "discussion_link": "https://loj.ac/discussion/problem/{pid}"
+  },
+  "guoj": {
+    "submit_link": "https://guoj.icu/problem/{pid}#submit_code",
+    "testdata_link": "https://guoj.icu/problem/{pid}/testdata",
+    "submission_link": "https://guoj.icu/submissions?problem_id={pid}",
+    "statistics_link": "https://guoj.icu/problem/{pid}/statistics/shortest",
+    "discussion_link": "https://guoj.icu/discussion/problem/{pid}"
+  },
+  "seuoj": {
+    "submit_link": "https://oj.seucpc.club/problem/{pid}#submit_code",
+    "testdata_link": "https://oj.seucpc.club/problem/{pid}/testdata",
+    "submission_link": "https://oj.seucpc.club/submissions?problem_id={pid}",
+    "statistics_link": "https://oj.seucpc.club/problem/{pid}/statistics/shortest",
+    "discussion_link": "https://oj.seucpc.club/discussion/problem/{pid}"
   },
   "uoj": {
-    "problem_link": "http://uoj.ac/problem/{pid}"
+    "submit_link": "http://uoj.ac/problem/{pid}#tab-submit-answer",
+    "statistics_link": "http://uoj.ac/problem/{pid}/statistics",
+    "submission_link": "http://uoj.ac/submissions?problem_id={pid}"
   }
 }

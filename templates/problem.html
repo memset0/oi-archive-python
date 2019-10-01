@@ -8,7 +8,22 @@
 {% block main %}
 <div class="problem-infobar">
 	<div class="btn-group mdui-btn-group problem-button-group left">
-		<a class="btn mdui-btn mdui-btn-active mdui-ripple" href="{{ prob['url'] }}">回到原题库</a>
+		<a class="btn mdui-btn mdui-btn-active mdui-ripple" target="_blank" href="{{ prob['url'] }}">回到原题库</a>
+		{% if 'submit_link' in config.keys() %}
+		<a class="btn mdui-btn mdui-ripple" target="_blank" href="{{ config['submit_link'].format(pid=pid) }}">提交</a>
+		{% endif %}
+		{% if 'testdata_link' in config.keys() %}
+		<a class="btn mdui-btn mdui-ripple" target="_blank" href="{{ config['testdata_link'].format(pid=pid) }}">测试数据</a>
+		{% endif %}
+		{% if 'submission_link' in config.keys() %}
+		<a class="btn mdui-btn mdui-ripple" target="_blank" href="{{ config['submission_link'].format(pid=pid) }}">提交记录</a>
+		{% endif %}
+		{% if 'statistics_link' in config.keys() %}
+		<a class="btn mdui-btn mdui-ripple" target="_blank" href="{{ config['statistics_link'].format(pid=pid) }}">统计</a>
+		{% endif %}
+		{% if 'discussion_link' in config.keys() %}
+		<a class="btn mdui-btn mdui-ripple" target="_blank" href="{{ config['discussion_link'].format(pid=pid) }}">讨论</a>
+		{% endif %}
 	</div>
 	<div class="btn-group mdui-btn-group problem-button-group right">
 		<button class="btn mdui-btn mdui-ripple">{{ prob['time'] }} ms</buttuon>
