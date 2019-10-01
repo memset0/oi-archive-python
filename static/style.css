@@ -66,7 +66,7 @@
 	margin: auto;
 	display: block;
 }
-.problem-card pre {
+/* .problem-card pre {
 	position: relative;
 	background: #fff;
 	-webkit-box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
@@ -75,7 +75,7 @@
 	padding: 1em 1em;
 	border-radius: .28571429rem;
 	border: 1px solid rgba(34,36,38,.15);
-}
+} */
 .problem-card p {
 	margin-top: 16px;
 	margin-bottom: 16px;

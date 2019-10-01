@@ -9,12 +9,20 @@ def markdown(text):
 	text = markdown_lib.markdown(text, extensions=['markdown.extensions.extra'])
 	return text
 
-def render(text, type):
+def render(text, type, oj):
 	if type == 'markdown':
 		text = markdown(text)
+	if oj == 'tsinsen':
+		text = text.replace('<div id="pcont1" style="margin-top:20px; display:block;">', '')
+	elif oj == 'bzoj':
+		text = text.replace('<div class="content"><span class="sampledata">', '<pre>')
+		text = text.replace('</span></div>', '</pre>')
+		text = text.replace('<br/>\n', '<br/>')
 	text = text.replace('src="source/', 'src="/source/')
 	text = re.sub('<pre>\n*', '<pre>', text)
 	text = re.sub('\n*</pre>', '</pre>', text)
+	text = text.replace('<pre>', '<div class="mdui-typo"><pre>')
+	text = text.replace('</pre>', '</pre></div>')
 	return text
 
 def load_oj_data():
@@ -79,10 +87,10 @@ def problem(oj, pid):
 		if key == -1:
 			continue
 		title = string[0:key]
-		statement = string[key:]
+		statement = render(string[key:], prob['description_type'], oj)
 		if re.sub('\s', '', statement) == '':
 			continue
-		content[title] = render(statement, prob['description_type'])
+		content[title] = statement
 	return render_template('problem.html', **data,
 		oj = oj,
 		pid = pid,
