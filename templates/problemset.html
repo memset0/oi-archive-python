@@ -1,21 +1,37 @@
 {% extends "layout.html" %}
-{% block title %}{{ data['name'] }} 的题目列表{% endblock %}
+
+{% block title %}
+{% if style == 'problemset' %}
+  {{ name }} 的题目列表
+{% elif style == 'search' %}
+  {{ name }} 的搜索结果
+{% endif %}
+{% endblock %}
+
+{% block page_title %}
+{% if style == 'problemset' %}
+  {{ name }} 的题目列表 - OI Archive
+{% elif style == 'search' %}
+  {{ name }} 的搜索结果 - OI Archive
+{% endif %}
+{% endblock %}
+
 {% block main %}
 <div class="mdui-table-fluid">
   <table class="mdui-table mdui-table-hoverable">
     <thead>
       <tr>
-        <th class="mdui-table-col-numeric">#</th>
+        <th>#</th>
         <th>Problem Name</th>
       </tr>
     </thead>
     <tbody>
-      {% for item in data['data'] %}
+      {% for problem in problemset %}
         <tr>
-          <td>{{ item['pid'] }}</td>
+          <td>{{ problem.oj_name }} {{ problem.pid }}</td>
           <td>
-            <a class="problemset-link" href="/problem/{{ oj }}/{{ item['pid'] }}">
-              {{ item['title'] }}
+            <a class="problemset-link" href="/problem/{{ problem.oj }}/{{ problem.pid }}">
+              {{ problem.title }}
             </a>
           </td>
         </tr>

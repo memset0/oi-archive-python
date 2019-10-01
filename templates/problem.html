@@ -1,10 +1,17 @@
 {% extends "layout.html" %}
+
 {% block title %}
 	{{ oj_data[oj]['name'] }}
 	{{ pid }}
 	<i class="mdui-icon material-icons">chevron_right</i>
 	{{ prob['title'] }}
 {% endblock %}
+
+{% block page_title %}
+	{{ oj_data[oj]['name'] }}{{ pid }}
+	{{ prob['title'] }}
+{% endblock %}
+
 {% block main %}
 <div class="problem-infobar">
 	<div class="btn-group mdui-btn-group problem-button-group left">

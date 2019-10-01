@@ -5,6 +5,19 @@ from flask import render_template
 from flask import send_from_directory
 app = Flask(__name__)
 
+class Problem:
+	def __init__(self, oj, pid, title):
+		self.oj = oj
+		self.oj_name = data['oj_data'][oj]['name']
+		self.pid = pid
+		self.title = title
+	def search(self, keyword):
+		if keyword == self.oj or keyword == self.pid or keyword == self.oj + self.pid:
+			return True
+		if keyword in self.title:
+			return True
+		return False
+
 def markdown(text):
 	text = markdown_lib.markdown(text, extensions=['markdown.extensions.extra'])
 	return text
@@ -49,6 +62,24 @@ data = {
 	'oj_config': load_oj_config()
 }
 
+def load_dictionary():
+	global dictionary, oj_problemset
+	dictionary = []
+	oj_problemset = {}
+	for oj, info in data['oj_data'].items():
+		problemset = []
+		for prob in info['data']:
+			problemset.append(Problem(
+				oj = oj,
+				pid = prob['pid'],
+				title = prob['title']
+			))
+		dictionary.extend(problemset)
+		oj_problemset[oj] = problemset
+	return dictionary
+
+load_dictionary()
+
 @app.errorhandler(404)
 def page_404(e):
     return render_template('errorpage.html', **data,
@@ -64,7 +95,7 @@ def page_500(e):
 	), 500
 
 @app.route('/source/<path:filename>') 
-def source_file(filename): 
+def source_file(filename):
     return send_from_directory('source', filename) 
 
 @app.route('/')
@@ -79,8 +110,8 @@ def problemset(oj):
 		return page_404(None)
 	return render_template('problemset.html', **data,
 		oj = oj,
-		data = data['oj_data'][oj],
-		config = data['oj_config'].get(oj, dict()),
+		name = data['oj_data'][oj]['name'],
+		problemset = oj_problemset[oj],
 		style = 'problemset'
 	)
 
@@ -107,6 +138,18 @@ def problem(oj, pid):
 		data = content,
 		config = data['oj_config'].get(oj, dict()),
 		style = 'problem'
+	)
+
+@app.route('/search/<keyword>')
+def search(keyword):
+	problemset = []
+	for prob in dictionary:
+		if prob.search(keyword):
+			problemset.append(prob)
+	return render_template('problemset.html', **data,
+		name = keyword,
+		problemset = problemset,
+		style = 'search'
 	)
 
 if __name__ == '__main__':
