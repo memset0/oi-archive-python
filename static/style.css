@@ -56,6 +56,19 @@
 }
 /* ===== drawer ===== */
 
+/* ===== comment ===== */
+.comment {
+	margin-top: 32px;
+	display: none;
+}
+.comment-container {
+	margin: 0 32px 0 32px !important;
+	padding: 0;
+	min-height: 36px !important;
+	margin-bottom: -32px !important;
+}
+/* ===== comment ===== */
+
 /* ===== problemset ===== */
 .problemset-link {
 	color: #000;

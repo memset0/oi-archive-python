@@ -8,7 +8,7 @@
     <title>{% block page_title %}{{ title }} - OI Archive{% endblock %}
     </title>
     <link rel="shortcut icon" href="static/images/favicon.png">
-    <link rel="stylesheet" href="/static/style.css?20191001">
+    <link rel="stylesheet" href="/static/style.css?20191002">
     <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
   </head>
   <body class="body mdui-drawer-body-left mdui-theme-primary-blue-grey mdui-theme-accent-cyan">
@@ -60,6 +60,15 @@
         {% endblock %}
       </div>
       {% endblock %}
+      {% block comment %}
+      <div class="mdui-card comment">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">评论</div>
+        </div>
+        <div id="lv-container" class="comment-container" data-id="city" data-uid="MTAyMC8zNDEwNi8xMDY0NA==">
+        </div>
+      </div>
+      {% endblock %}
     </div>
 
     <!-- <i class="mdui-icon material-icons">chevron_right</i> -->
@@ -90,5 +99,19 @@
     });
     </script>
     <script async src="//cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+        setTimeout(function () {
+          $('.comment')[0].style['display']='block';
+        }, 2000);
+      })(document, 'script');
+    </script>
+
   </body>
 </html>
