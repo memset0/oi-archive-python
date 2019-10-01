@@ -15,10 +15,7 @@ or
 Require Docker installed.
 
 ```
-wget https://github.com/oi-archive/source/archive/master.zip
-unzip master.zip
-mv source-master source
-sh command/docker-build.sh
+docker image build . -t oi-archive
 ```
 
 and run container with
