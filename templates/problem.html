@@ -1,48 +1,48 @@
 {% extends "layout.html" %}
 
 {% block title %}
-	{{ oj_data[oj]['name'] }}
-	{{ pid }}
+	{{ oj.name }}
+	{{ problem.pid }}
 	<i class="mdui-icon material-icons">chevron_right</i>
-	{{ prob['title'] }}
+	{{ problem.title }}
 {% endblock %}
 
 {% block page_title %}
-	{{ oj_data[oj]['name'] }}{{ pid }}
-	{{ prob['title'] }}
+	{{ oj.name }}{{ problem.pid }}
+	{{ problem.title }}
 {% endblock %}
 
 {% block main %}
 <div class="problem-infobar">
 	<div class="btn-group mdui-btn-group problem-button-group left">
-		<a class="btn btn-active mdui-btn mdui-ripple mdui-ripple-white" target="_blank" href="{{ prob['url'] }}">
+		<a class="btn btn-active mdui-btn mdui-ripple mdui-ripple-white" target="_blank" href="{{ problem_info.url }}">
 			<i class="mdui-icon material-icons">open_in_new</i>
 		</a>
-		{% if 'submit_link' in config.keys() %}
-		<a class="btn mdui-btn mdui-ripple mdui-ripple-white" target="_blank" href="{{ config['submit_link'].format(pid=pid) }}">提交</a>
+		{% if oj.submit_link %}
+		<a class="btn mdui-btn mdui-ripple mdui-ripple-white" target="_blank" href="{{ oj.submit_link.format(pid=problem.pid) }}">提交</a>
 		{% endif %}
-		{% if 'testdata_link' in config.keys() %}
-		<a class="btn mdui-btn mdui-ripple mdui-ripple-white" target="_blank" href="{{ config['testdata_link'].format(pid=pid) }}">测试数据</a>
+		{% if oj.testdata_link %}
+		<a class="btn mdui-btn mdui-ripple mdui-ripple-white" target="_blank" href="{{ oj.testdata_link.format(pid=problem.pid) }}">测试数据</a>
 		{% endif %}
-		{% if 'submission_link' in config.keys() %}
-		<a class="btn mdui-btn mdui-ripple mdui-ripple-white" target="_blank" href="{{ config['submission_link'].format(pid=pid) }}">提交记录</a>
+		{% if oj.submission_link %}
+		<a class="btn mdui-btn mdui-ripple mdui-ripple-white" target="_blank" href="{{ oj.submission_link.format(pid=problem.pid) }}">提交记录</a>
 		{% endif %}
-		{% if 'statistics_link' in config.keys() %}
-		<a class="btn mdui-btn mdui-ripple mdui-ripple-white" target="_blank" href="{{ config['statistics_link'].format(pid=pid) }}">统计</a>
+		{% if oj.statistics_link %}
+		<a class="btn mdui-btn mdui-ripple mdui-ripple-white" target="_blank" href="{{ oj.statistics_link.format(pid=problem.pid) }}">统计</a>
 		{% endif %}
-		{% if 'discussion_link' in config.keys() %}
-		<a class="btn mdui-btn mdui-ripple mdui-ripple-white" target="_blank" href="{{ config['discussion_link'].format(pid=pid) }}">讨论</a>
+		{% if oj.discussion_link %}
+		<a class="btn mdui-btn mdui-ripple mdui-ripple-white" target="_blank" href="{{ oj.discussion_link.format(pid=problem.pid) }}">讨论</a>
 		{% endif %}
 	</div>
 	<div class="btn-group mdui-btn-group problem-button-group right">
-		<button class="btn mdui-btn mdui-ripple">{{ prob['time'] }} ms</buttuon>
-		<button class="btn mdui-btn mdui-ripple">{{ prob['memory'] }} MB</buttuon>
-		{% if 'judge' in prob.keys() and prob['judge'] != '' %}
-		<button class="btn mdui-btn mdui-ripple">{{ prob['judge'] }}</buttuon>
+		<button class="btn mdui-btn mdui-ripple">{{ problem_info.time }} ms</buttuon>
+		<button class="btn mdui-btn mdui-ripple">{{ problem_info.memory }} MB</buttuon>
+		{% if problem_info.judge %}
+		<button class="btn mdui-btn mdui-ripple">{{ problem_info.judge }}</buttuon>
 		{% endif %}
 	</div>
 </div>
-{% for title, content in data.items() %}
+{% for title, content in problem_data.items() %}
 	<div class="mdui-card problem-card">
 		<div class="mdui-card-primary">
 			<div class="mdui-card-primary-title">{{ title }}</div>

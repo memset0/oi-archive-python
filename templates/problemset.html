@@ -2,17 +2,17 @@
 
 {% block title %}
 {% if style == 'problemset' %}
-  {{ name }} 的题目列表
+  {{ oj.name }} 的题目列表
 {% elif style == 'search' %}
-  {{ name }} 的搜索结果
+  {{ ' '.join(keywords) }} 的搜索结果
 {% endif %}
 {% endblock %}
 
 {% block page_title %}
 {% if style == 'problemset' %}
-  {{ name }} 的题目列表 - OI Archive
+  {{ oj.name }} 的题目列表 - OI Archive
 {% elif style == 'search' %}
-  {{ name }} 的搜索结果 - OI Archive
+  {{ ' '.join(keywords) }} 的搜索结果 - OI Archive
 {% endif %}
 {% endblock %}
 

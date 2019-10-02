@@ -1,11 +1,14 @@
 import json
 
 class Problem:
-	def __init__(self, oj, pid, title):
+	def __init__(self, oj, oj_name, pid, title, order=-1):
 		self.oj = oj
-		self.oj_name = data['oj_data'][oj]['name']
+		self.oj_name = oj_name
 		self.pid = pid
 		self.title = title
+		self.order = order
+	def __str__(self):
+		return self.title
 	def search(self, keyword):
 		keyword = keyword.upper()
 		if keyword == self.oj.upper() or keyword == self.pid.upper() or keyword == self.oj.upper() + self.pid.upper():
@@ -14,39 +17,47 @@ class Problem:
 			return True
 		return False
 
-def load_oj_data():
-	result = {}
-	for info in json.load(open('source/problemset.json','r')):
-		name = info['id']; del info['id']
-		if name == 'main':
+class ProblemInfo:
+	def __init__(self, time, memory, judge, url, description_type):
+		self.time = time
+		self.memory = memory
+		self.judge = judge
+		self.url = url
+		self.description_type = description_type
+
+class OnlineJudge:
+	def __init__(self, key, name, enable, problemlist, submit_link=None, testdata_link=None, submission_link=None, statistics_link=None, discussion_link=None):
+		self.key = key
+		self.name = name
+		self.problemlist = problemlist
+		self.submit_link = submit_link
+		self.testdata_link = testdata_link
+		self.submission_link = submission_link
+		self.statistics_link = statistics_link
+		self.discussion_link = discussion_link
+
+def init():
+	global config, oj_list
+	config = json.load(open('config.json', encoding='utf8'))
+	oj_list = dict()
+	for oj_key, oj_data in config['oj'].items():
+		if not oj_data['enable']:
 			continue
-		info['data'] = json.load(open('source/{name}/problemlist.json'.format(name=name),'r'))
-		result[name] = info
-	return result
+		problemlist = dict()
+		for problem in json.load(open('source/{oj}/problemlist.json'.format(oj=oj_key))):
+			problemlist[problem['pid']] = Problem(
+				oj = oj_key,
+				oj_name = oj_data['name'],
+				pid = problem['pid'],
+				title = problem['title']
+			)
+		oj_list[oj_key] = OnlineJudge(**oj_data,
+			key = oj_key,
+			problemlist = problemlist
+		)
 
-def load_oj_config():
-	result = json.load(open('config.json','r'))
-	return result
-
-data = {
-	'oj_data': load_oj_data(),
-	'oj_config': load_oj_config()
-}
-
-def load_dictionary():
-	global dictionary, oj_problemset
-	dictionary = []
-	oj_problemset = {}
-	for oj, info in data['oj_data'].items():
-		problemset = []
-		for prob in info['data']:
-			problemset.append(Problem(
-				oj = oj,
-				pid = prob['pid'],
-				title = prob['title']
-			))
-		dictionary.extend(problemset)
-		oj_problemset[oj] = problemset
-	return dictionary
-
-load_dictionary()
+def init_data():
+	global data
+	data = dict()
+	data['config'] = config
+	data['oj_list'] = oj_list

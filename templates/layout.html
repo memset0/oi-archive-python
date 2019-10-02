@@ -36,11 +36,11 @@
             </li>
           </a>
           <li class="mdui-subheader">OJ 列表</li>
-          {% for name, item in oj_data.items() %}
-          <a href="/problemset/{{ name }}" class="list-item">
+          {% for oj in oj_list.values() %}
+          <a href="/problemset/{{ oj.key }}" class="list-item">
             <li class="mdui-list-item mdui-ripple">
               <i class="mdui-list-item-icon mdui-icon material-icons">archive</i>
-              <div class="mdui-list-item-content">{{ item['name'] }}</div>
+              <div class="mdui-list-item-content">{{ oj.name }}</div>
             </li>
          </a> 
           {% endfor %}

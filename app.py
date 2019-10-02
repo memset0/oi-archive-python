@@ -1,10 +1,20 @@
+import re
+import json
+
 from flask import Flask
 from flask import render_template
 from flask import send_from_directory
 app = Flask(__name__)
 
-from render import *
-from loader import *
+from render import render
+from loader import Problem
+from loader import ProblemInfo
+from loader import OnlineJudge
+
+import loader
+loader.init()
+loader.init_data()
+from loader import data, config, oj_list
 
 @app.errorhandler(404)
 def page_404(e):
@@ -15,7 +25,7 @@ def page_404(e):
 
 @app.errorhandler(500)
 def page_500(e):
-    return render_template('errorpage.html', **data,
+    return render_template('errorpage.html',
 		error_code = 500,
 		error_info = 'Internal Server Error'
 	), 500
@@ -36,54 +46,60 @@ def index():
 
 @app.route('/problemset/<oj>')
 def problemset(oj):	
-	if not oj in data['oj_data'].keys():
+	if not oj in oj_list.keys():
 		return page_404(None)
 	return render_template('problemset.html', **data,
-		oj = oj,
-		name = data['oj_data'][oj]['name'],
-		problemset = oj_problemset[oj],
+		oj = oj_list[oj],
+		problemset = oj_list[oj].problemlist.values(),
 		style = 'problemset'
 	)
 
 @app.route('/problem/<oj>/<pid>')
 def problem(oj, pid):
-	if not oj in data['oj_data'].keys():
+	if not oj in oj_list.keys() or not pid in oj_list[oj].problemlist.keys():
 		return page_404(None)
-	prob = json.load(open('source/{oj}/{pid}/main.json'.format(oj=oj, pid=pid)))
+	info = json.load(open('source/{oj}/{pid}/main.json'.format(oj=oj, pid=pid), encoding='utf8'))
 	plain = open('source/{oj}/{pid}/description.md'.format(oj=oj, pid=pid), 'r+', encoding='utf8').read()
-	content = {}
+	problem_info = ProblemInfo(
+		time = info['time'],
+		memory = info['memory'],
+		judge = info['judge'],
+		url = info['url'],
+		description_type = info['description_type']
+	)
+	problem_data = dict()
 	for string in ('\n' + plain).split('\n# '):
 		key = string.find('\n')
 		if key == -1:
 			continue
 		title = string[0:key]
-		statement = render(string[key:], prob['description_type'], oj)
-		if re.sub('\s', '', statement) == '':
+		statement = render(string[key:], problem_info.description_type, oj)
+		if re.sub(r'\s', '', statement) == '':
 			continue
-		content[title] = statement
+		problem_data[title] = statement
 	return render_template('problem.html', **data,
-		oj = oj,
-		pid = pid,
-		prob = prob,
-		data = content,
-		config = data['oj_config'].get(oj, dict()),
+		oj = oj_list[oj],
+		problem = oj_list[oj].problemlist[pid],
+		problem_info = problem_info,
+		problem_data = problem_data,
 		style = 'problem'
 	)
 
-@app.route('/search/<keywords>')
-def search(keywords):
-	keywords = keywords.split(' ')
+@app.route('/search/<input>')
+def search(input):
+	keywords = input.split(' ')
 	problemset = []
-	for prob in dictionary:
-		flag = True
-		for keyword in keywords:
-			if not prob.search(keyword):
-				flag = False
-				break
-		if flag:
-			problemset.append(prob)
+	for oj in oj_list.values():
+		for problem in oj.problemlist.values():
+			flag = True
+			for keyword in keywords:
+				if not problem.search(keyword):
+					flag = False
+					break
+			if flag:
+				problemset.append(problem)
 	return render_template('problemset.html', **data,
-		name = ' '.join(keywords),
+		keywords = keywords,
 		problemset = problemset,
 		style = 'search'
 	)
