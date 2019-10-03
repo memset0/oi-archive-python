@@ -2,15 +2,11 @@ import re
 import json
 
 from flask import Flask
-from flask import render_template
-from flask import send_from_directory
+from flask import render_template, send_from_directory
 app = Flask(__name__)
 
-from render import render
-from loader import Problem
-from loader import ProblemInfo
-from loader import OnlineJudge
-
+from render import render, render_markdown
+from loader import Problem, ProblemInfo, OnlineJudge
 import loader
 loader.init()
 loader.init_data()
@@ -41,6 +37,7 @@ def favicon_file():
 @app.route('/')
 def index():
 	return render_template('index.html', **data, 
+		content = render_markdown(open('index.md', 'r+', encoding='utf8').read()),
 		style = 'index'
 	)
 

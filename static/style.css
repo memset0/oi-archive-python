@@ -107,6 +107,13 @@
 }
 /* ===== comment ===== */
 
+/* ===== index page ===== */
+.index-card .mdui-card-content {
+	padding: 0;
+	margin: 1.2em;
+}
+/* ===== index page ===== */
+
 /* ===== problemset ===== */
 .problemset-link {
 	color: #000;

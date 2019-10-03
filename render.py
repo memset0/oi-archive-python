@@ -1,7 +1,7 @@
 import re
 import markdown as markdown_lib
 
-def markdown(text):
+def render_markdown(text):
 	text = markdown_lib.markdown(text, extensions=['markdown.extensions.extra'])
 	return text
 
@@ -10,7 +10,7 @@ def render(text, type, oj):
 	if type == 'markdown':
 		text = text.replace('\n* ', '\n\n* ')
 		text = text.replace('\n- ', '\n\n- ')
-		text = markdown(text)
+		text = render_markdown(text)
 	if oj == 'tsinsen':
 		text = text.replace('<div id="pcont1" style="margin-top:20px; display:block;">', '')
 		data = re.findall('<div class="pddata">[\s\S]*?</div>', text)
