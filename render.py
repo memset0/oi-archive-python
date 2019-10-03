@@ -6,7 +6,7 @@ def markdown(text):
 	return text
 
 def render(text, type, oj):
-	# 人类智慧结晶
+	# 人类智慧
 	if type == 'markdown':
 		text = text.replace('\n* ', '\n\n* ')
 		text = text.replace('\n- ', '\n\n- ')
