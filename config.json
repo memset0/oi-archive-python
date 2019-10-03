@@ -18,7 +18,8 @@
     },
     "bzoj": {
       "name": "BZOJ",
-      "enable": true
+      "enable": true,
+      "testdata_link": "https://darkbzoj.tk/data/{pid}.zip"
     },
     "guoj": {
       "name": "GuOJ",
@@ -45,10 +46,6 @@
     "cogs": {
       "name": "COGS",
       "enable": false
-    },
-    "seuoj": {
-      "name": "seuOJ",
-      "enable": true
     }
   }
 }
