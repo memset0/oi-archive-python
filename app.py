@@ -87,7 +87,7 @@ def problem(oj, pid):
 
 @app.route('/search/<input>')
 def search(input):
-	keywords = input.split(' ')
+	keywords = re.findall(r'\w+', input.upper())
 	problemset = []
 	for oj in oj_list.values():
 		for problem in oj.problemlist.values():
