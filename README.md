@@ -13,11 +13,10 @@ or
 
 ```shell
 # Require Docker installed.
-wget https://github.com/oi-archive/source/archive/master.zip
-mv master.zip source.zip
+git clone https://github.com/oi-archive/source.git source
 docker image build . -t oi-archive
 # and run container with
-docker container run -d -p 8080:8080 -it oi-archive
+docker container run --name oi-archive -d -p 8080:8080 -v $PWD/source:/app/source -it oi-archive
 ```
 
 
