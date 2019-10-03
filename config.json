@@ -41,7 +41,8 @@
     },
     "tsinsen": {
       "name": "清橙",
-      "enable": true
+      "enable": true,
+      "discussion_link": "http://www.tsinsen.com/Forum/Index.page?gpid={pid}"
     },
     "cogs": {
       "name": "COGS",
