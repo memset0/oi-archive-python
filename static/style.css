@@ -24,18 +24,20 @@
 .mdui-typo h5,
 .mdui-typo h6 {
 	margin-top: 0px !important;
-	margin-bottom: 16px !important;
+	margin-bottom: 1.2em !important;
 	font-weight: bold !important;
 }
 .mdui-typo h1 {
-	margin-top: 8px !important;
+	margin-top: 2em !important;
 	font-size: 24px !important;
 }
 .mdui-typo h2 {
-	margin-top: 4px !important;
+	margin-top: 1.6em !important;
 	font-size: 20px !important;
 }
-.mdui-typo h3,
+.mdui-typo h3 {
+	font-size: 18px !important;
+}
 .mdui-typo h4,
 .mdui-typo h5,
 .mdui-typo h6 {
@@ -118,12 +120,12 @@
 }
 .problem-card .mdui-card-primary {
 	font-size: 10px;
-	margin: 16px;
+	margin: 1.2em;
 	padding: 0;
 }
 .problem-card .mdui-card-content {
 	padding: 0;
-	margin: 0 16px 16px 16px;
+	margin: 0 1.2em 1.2em 1.2em;
 }
 .problem-card .mdui-card-primary .mdui-card-primary-title {
 	font-size: 22px;
