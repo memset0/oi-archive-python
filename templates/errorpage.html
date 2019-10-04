@@ -1,11 +1,13 @@
 {% extends "layout.html" %}
 {% block title %}{{ error_code }} Page{% endblock %}
-{% block main_card %}
-<div class="mdui-card-primary">
-  <div class="mdui-card-primary-title">{{ error_code }} {{ error_info }}</div>
-  <div class="mdui-card-primary-subtitle">我们常会遇到迷茫，但总能抓住心中的方向。</div>
-</div>
-<div class="mdui-card-content">
-  如果遇到预期之外的服务器错误，请反馈给 memset0 或 OI Archive 团队。
+{% block main %}
+<div class="index-card mdui-card">
+  <div class="mdui-card-primary">
+    <div class="mdui-card-primary-title">{{ error_code }} {{ error_info }}</div>
+    <div class="mdui-card-primary-subtitle">我们常会遇到迷茫，但总能抓住心中的方向。</div>
+  </div>
+  <div class="mdui-card-content mdui-typo">
+    如果遇到预期之外的服务器错误，请反馈给 memset0 或 OI Archive 团队。
+  </div>
 </div>
 {% endblock %}
