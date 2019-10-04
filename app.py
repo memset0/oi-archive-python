@@ -41,7 +41,7 @@ def index():
 		style = 'index'
 	)
 
-@app.route('/problemset/<oj>/')
+@app.route('/problemset/<oj>')
 def problemset(oj):	
 	if not oj in oj_list.keys():
 		return page_404(None)
@@ -51,7 +51,7 @@ def problemset(oj):
 		style = 'problemset'
 	)
 
-@app.route('/problem/<oj>/<pid>/')
+@app.route('/problem/<oj>/<pid>')
 def problem(oj, pid):
 	if not oj in oj_list.keys() or not pid in oj_list[oj].problemlist.keys():
 		return page_404(None)
@@ -82,7 +82,7 @@ def problem(oj, pid):
 		style = 'problem'
 	)
 
-@app.route('/search/<input>/')
+@app.route('/search/<input>')
 def search(input):
 	keywords = re.findall(r'\w+', input.upper())
 	problemset = []
