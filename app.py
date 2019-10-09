@@ -62,6 +62,7 @@ def problem(oj, pid):
 		memory = info['memory'],
 		judge = info['judge'],
 		url = info['url'],
+		title = info['title'],
 		description_type = info['description_type']
 	)
 	problem_data = dict()

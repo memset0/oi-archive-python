@@ -18,11 +18,12 @@ class Problem:
 		return False
 
 class ProblemInfo:
-	def __init__(self, time, memory, judge, url, description_type):
+	def __init__(self, time, memory, judge, url, title, description_type):
 		self.time = time
 		self.memory = memory
 		self.judge = judge
 		self.url = url
+		self.title = title
 		self.description_type = description_type
 
 class OnlineJudge:
